@@ -1,0 +1,28 @@
+{
+  "341be56d-f14f-44aa-abd5-30d981712193": {
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/shared-sharepointonl-542d381f-e972-48b5-8a7f-d86f-389bf146",
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1559/1.0.1559.2722/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://lovespdev.sharepoint.com/sites/Raj": {
+        "dataSources": {
+          "InvoicePayment": {
+            "tableName": "daa49432-4737-4d49-b783-1a640cc83134"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "InvoicePayment"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "341be56d-f14f-44aa-abd5-30d981712193"
+  }
+}
