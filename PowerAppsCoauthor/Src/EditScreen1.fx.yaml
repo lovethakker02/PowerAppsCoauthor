@@ -45,6 +45,7 @@
         ZIndex: =4
 
     EditForm1 As form:
+        AcceptsFocus: =false
         DataSource: =[@InvoicePayment]
         Height: =Parent.Height - EditForm1.Y
         Item: =BrowseGallery1.Selected

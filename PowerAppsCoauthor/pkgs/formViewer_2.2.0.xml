@@ -1,4 +1,4 @@
-<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/formViewer" name="formViewer" jsClass="AppMagic.Controls.Form.FormControl" version="2.1.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/formViewer" name="formViewer" jsClass="AppMagic.Controls.Form.FormControl" version="2.2.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
   <author name="Microsoft AppMagic" />
   <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
   <description><![CDATA[FormViewer
@@ -8,7 +8,7 @@
     <require type="javascript" src="/ctrllib/fluidGrid/js/fluidGrid.js" />
     <require type="javascript" src="/ctrllib/form/js/form.js" />
   </requires>
-  <appMagic:capabilities supportsNestedControls="true" replicatesNestedControls="true" contextualViewsEnabled="false" autoBorders="true" autoFill="true" autoPointerViewState="false" autoDisabledViewState="false" defaultLayoutName="vertical" aggregatesChildLayouts="true" replicationLimit="0" isVersionFlexible="true" managesNestedControlBounds="true" />
+  <appMagic:capabilities supportsNestedControls="true" replicatesNestedControls="true" contextualViewsEnabled="false" autoBorders="true" autoFill="true" autoPointerViewState="false" autoDisabledViewState="false" autoFocusedBorders="true" defaultLayoutName="vertical" aggregatesChildLayouts="true" replicationLimit="0" isVersionFlexible="true" managesNestedControlBounds="true" />
   <!-- The parents that are supported. All other controls are prohibited as parents for this control. -->
   <appMagic:supportedParents>
     <appMagic:supportedControl name="screen" />
@@ -55,6 +55,8 @@
     <appMagic:includeProperty name="BorderColor" />
     <appMagic:includeProperty name="BorderStyle" />
     <appMagic:includeProperty name="BorderThickness" />
+    <appMagic:includeProperty name="FocusedBorderColor" defaultValue="Self.BorderColor" isExpr="true" />
+    <appMagic:includeProperty name="FocusedBorderThickness" defaultValue="4" />
     <appMagic:includeProperty name="X" />
     <appMagic:includeProperty name="Y" />
     <appMagic:includeProperty name="Width" defaultValue="800" phoneDefaultValue="640" />
@@ -62,15 +64,18 @@
     <appMagic:includeProperty name="NumberOfColumns" defaultValue="3" phoneDefaultValue="1" />
     <appMagic:includeProperty name="SnapToColumns" />
     <appMagic:includeProperty name="Visible" />
+    <appMagic:includeProperty name="AcceptsFocus" />
     <!-- Hidden properties -->
     <appMagic:includeProperty name="minimumWidth" defaultValue="20" />
     <appMagic:includeProperty name="minimumHeight" defaultValue="20" />
     <appMagic:includeProperty name="maximumWidth" defaultValue="600" />
     <appMagic:includeProperty name="maximumHeight" defaultValue="300" />
+    <appMagic:includeProperty name="TabIndex" defaultValue="-1" hidden="true" />
   </appMagic:includeProperties>
   <appMagic:propertyDependencies>
     <appMagic:propertyDependency input="DataSource" output="Current" />
     <appMagic:propertyDependency input="Item" output="Current" />
+    <appMagic:propertyDependency input="AcceptsFocus" output="TabIndex" />
   </appMagic:propertyDependencies>
   <appMagic:insertMetadata>
     <appMagic:category name="Input" priority="160" />
@@ -109,6 +114,7 @@
         <appMagic:property name="BorderThickness" />
         <appMagic:property name="BorderColor" />
       </appMagic:propertyGroup>
+      <appMagic:property name="AcceptsFocus" />
     </appMagic:section>
   </appMagic:displayMetadata>
   <appMagic:conversion from="2.0.0" to="2.0.1">
@@ -119,5 +125,11 @@
   </appMagic:conversion>
   <appMagic:conversion from="2.0.2" to="2.1.0">
     <appMagic:conversionAction type="add" name="ContentLanguage" />
+  </appMagic:conversion>
+  <appMagic:conversion from="2.1.0" to="2.2.0">
+    <appMagic:conversionAction type="add" name="AcceptsFocus" />
+    <appMagic:conversionAction type="add" name="FocusedBorderColor" />
+    <appMagic:conversionAction type="add" name="FocusedBorderThickness" />
+    <appMagic:conversionAction type="add" name="TabIndex" />
   </appMagic:conversion>
 </widget>
